@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Card } from "../interfaces/card-interface";
 import { Collection } from "../interfaces/collection-interface";
-import { HomeProps } from "../interfaces/home-props";
+import { HomePageProps } from "../interfaces/home-page-props";
 import styles from "../styles/Home.module.css";
 
-const Home: NextPage<HomeProps> = ({ collections }) => {
+const Home: NextPage<HomePageProps> = ({ collections }) => {
   const onClickBuy = async (collectionId: string) => {
     const res = await fetch("http://localhost:3000/api/purchase", {
       method: "POST",
@@ -23,6 +24,9 @@ const Home: NextPage<HomeProps> = ({ collections }) => {
 
   return (
     <div className={styles.container}>
+      <Link href="/collection">
+        <button>Collection</button>
+      </Link>
       {collections.map((collection) => (
         <div key={collection.id}>
           <p>{collection.name}</p>
@@ -39,7 +43,6 @@ const Home: NextPage<HomeProps> = ({ collections }) => {
           ))}
         </div>
       ))}
-      <div>{}</div>
     </div>
   );
 };
