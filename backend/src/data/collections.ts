@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
+import { Collection } from "../interfaces/collection-interface";
 import generateCards from "../utils/generate-cards";
 
-const collections = [
+const collections: Collection[] = [
   {
     id: uuidv4(),
     name: "Persija Jakarta",
