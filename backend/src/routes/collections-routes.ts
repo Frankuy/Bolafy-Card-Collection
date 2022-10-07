@@ -4,7 +4,7 @@ import collections from "../data/collections";
 const router = Router();
 
 router.get("/", (req, res, next) => {
-  res.json(collections);
+  return res.json(collections);
 });
 
 export const CollectionsRouter = router;

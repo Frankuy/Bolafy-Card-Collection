@@ -1,8 +1,7 @@
 const users = [
   {
-    id: 1,
-    username: "Test",
-    name: "Test",
+    username: "test",
+    name: "Dummy User",
     cards: [],
   },
 ];
