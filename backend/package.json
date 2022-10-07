@@ -4,9 +4,9 @@
   "description": "API for Bolafy Card Collection Website",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon index.ts",
+    "watch": "nodemon src/index.ts",
     "build": "tsc",
-    "start": "ts-node index.ts"
+    "start": "ts-node src/index.ts"
   },
   "author": "Muhammad Fikri Hizbullah",
   "license": "ISC",
