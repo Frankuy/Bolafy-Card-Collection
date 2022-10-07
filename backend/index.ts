@@ -1,3 +1,8 @@
-import collections from "./data/collections";
+import express from "express";
 
-console.log(collections);
+const app = express();
+const port = 3000;
+
+app.listen(port, () => {
+  console.log(`Server is up in port ${port}`);
+});
