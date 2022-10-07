@@ -3,17 +3,24 @@ import collections from "../data/collections";
 import users from "../data/users";
 import { Purchase } from "../interfaces/purchase-interface";
 import getMultipleRandom from "../utils/get-multiple-random";
-import { v4 as uuidv4 } from "uuid";
 import { Card } from "../interfaces/card-interface";
 
 const router = Router();
 
 router.post("/", (req, res, next) => {
   let { username, collectionId }: Purchase = req.body;
+  console.log(req);
   const user = users.find((u) => u.username == username);
   const collection = collections.find((c) => c.id == collectionId);
-  if (user == null || collection == null) {
-    return res.sendStatus(404);
+  if (user == null) {
+    return res.status(404).json({
+      errors: [{ field: "username", error: "User not found" }],
+    });
+  }
+  if (collection == null) {
+    return res.status(404).json({
+      errors: [{ field: "collection", error: "Collection not found" }],
+    });
   }
   // Get 2 cards random from collection
   const randomCards: Card[] = getMultipleRandom(collection.cards, 2);
