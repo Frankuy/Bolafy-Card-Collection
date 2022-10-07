@@ -5,17 +5,17 @@ const collections: Collection[] = [
   {
     id: "Persija",
     name: "Persija Jakarta",
-    cards: generateCards(10, "Persija"),
+    cards: generateCards("Persija"),
   },
   {
     id: "Persib",
     name: "Persib Bandung",
-    cards: generateCards(10, "Persib"),
+    cards: generateCards("Persib"),
   },
   {
     id: "Persebaya",
     name: "Persebaya Surabaya",
-    cards: generateCards(10, "Persebaya"),
+    cards: generateCards("Persebaya"),
   },
 ];
 
