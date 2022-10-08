@@ -4,41 +4,52 @@ import Button from "./Button";
 import Card from "./Card";
 import Slider from "react-slick";
 import BuyIcon from "./BuyIcon";
+import carouselSetting from "../settings/carousel";
+import ReactModal from "react-modal";
+import { useModal } from "react-modal-hook";
+import Title from "./Title";
+import { useState } from "react";
+
+const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    zIndex: 100,
+  },
+  content: {
+    backgroundColor: "#1e1940",
+    borderRadius: "8px",
+    borderColor: "transparent",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 const Collection = ({ collection }: CollectionProps) => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 500,
-    autoplaySpeed: 2000,
-    swipeToSlide: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  const [newCards, setNewCards] = useState<ICard[]>([]);
+  const [showModal, hideModal] = useModal(
+    () => (
+      <ReactModal isOpen style={customStyles}>
+        <div className="flex flex-col justify-center items-center">
+          <p className="text-white font-bold text-xl">
+            Congrats! you get these cards
+          </p>
+          <div className="flex flex-wrap">
+            {newCards.map((card) => (
+              <div className="m-4" key={card.id}>
+                <Card card={card} />
+              </div>
+            ))}
+          </div>
+          <Button onClick={hideModal}>Close</Button>
+        </div>
+      </ReactModal>
+    ),
+    [newCards]
+  );
 
   const onClickBuy = async (collectionId: string) => {
     const res = await fetch("http://localhost:3000/api/purchase", {
@@ -52,7 +63,8 @@ const Collection = ({ collection }: CollectionProps) => {
       }),
     });
     const data: ICard[] = await res.json();
-    console.log(data);
+    setNewCards(data);
+    showModal();
   };
 
   return (
@@ -67,7 +79,7 @@ const Collection = ({ collection }: CollectionProps) => {
         </Button>
       </div>
       <div className="w-auto mx-8">
-        <Slider {...settings}>
+        <Slider {...carouselSetting}>
           {collection.cards.map((card) => (
             <div key={card.id}>
               <Card card={card} />
