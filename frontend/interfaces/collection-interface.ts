@@ -1,7 +1,7 @@
-import { Card } from "./card-interface";
+import { ICard } from "./card-interface";
 
-export interface Collection {
+export interface ICollection {
   id: string;
   name: string;
-  cards: Card[];
+  cards: ICard[];
 }

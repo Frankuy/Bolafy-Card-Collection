@@ -1,12 +1,11 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import { Card } from "../interfaces/card-interface";
+import { ICard } from "../interfaces/card-interface";
 import { CollectionPageProps } from "../interfaces/collection-page-props";
-import styles from "../styles/Home.module.css";
 
 const CollectionPage: NextPage<CollectionPageProps> = ({ cards }) => {
   return (
-    <div className={styles.container}>
+    <div>
       {cards.map((card) => (
         <Image
           key={card.id}
@@ -23,7 +22,7 @@ const CollectionPage: NextPage<CollectionPageProps> = ({ cards }) => {
 
 export async function getStaticProps() {
   const res = await fetch("http://localhost:3000/api/users/test/cards");
-  const cards: Card[] = await res.json();
+  const cards: ICard[] = await res.json();
 
   return {
     props: {

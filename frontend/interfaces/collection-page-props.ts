@@ -1,5 +1,5 @@
-import { Card } from "./card-interface";
+import { ICard } from "./card-interface";
 
 export interface CollectionPageProps {
-  cards: Card[];
+  cards: ICard[];
 }

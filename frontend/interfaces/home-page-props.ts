@@ -1,5 +1,5 @@
-import { Collection } from "./collection-interface";
+import { ICollection } from "./collection-interface";
 
 export interface HomePageProps {
-  collections: Collection[];
+  collections: ICollection[];
 }
