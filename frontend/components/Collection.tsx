@@ -28,7 +28,7 @@ const Collection = ({ collection }: CollectionProps) => {
         <p className="text-white">{collection.name}</p>
         <Button onClick={() => onClickBuy(collection.id)}>Buy</Button>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center flex-wrap">
         {collection.cards.map((card) => (
           <div key={card.id} className="m-1">
             <Card card={card} />

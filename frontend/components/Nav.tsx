@@ -11,7 +11,7 @@ const Nav = ({ href, text, active }: NavProps) => {
     <Link href={href}>
       <a
         className={`${
-          active ? "text-white" : "text-gray-300"
+          active ? "text-white" : "text-gray-400"
         } transition-all font-bold hover:text-gray-100`}
       >
         {text}

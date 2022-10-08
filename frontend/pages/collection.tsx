@@ -1,21 +1,27 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import Card from "../components/Card";
+import Header from "../components/Header";
+import Title from "../components/Title";
 import { ICard } from "../interfaces/card-interface";
 import { CollectionPageProps } from "../interfaces/collection-page-props";
 
 const CollectionPage: NextPage<CollectionPageProps> = ({ cards }) => {
   return (
     <div>
-      {cards.map((card) => (
-        <Image
-          key={card.id}
-          src={card.link}
-          alt={card.name}
-          width={100}
-          height={100}
-          objectFit="contain"
-        />
-      ))}
+      <Header />
+      <div className="px-8">
+        <div className="mb-2">
+          <Title>Your Collection</Title>
+        </div>
+        <div className="flex flex-wrap">
+          {cards.map((card) => (
+            <div key={card.id} className="m-1">
+              <Card card={card} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

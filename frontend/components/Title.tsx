@@ -1,6 +1,12 @@
-const Title = () => {
+interface TitleProps {
+  children?: string;
+}
+
+const Title = ({ children }: TitleProps) => {
   return (
-    <h1 className="text-white font-semibold text-lg">Explore Collections</h1>
+    <h1 className="text-white text-center font-semibold text-3xl mb-8">
+      {children}
+    </h1>
   );
 };
 

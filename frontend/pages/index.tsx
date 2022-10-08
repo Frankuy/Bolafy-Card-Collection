@@ -30,7 +30,7 @@ const Home: NextPage<HomePageProps> = ({ collections }) => {
       <Header />
       <div className="px-8">
         <div className="mb-2">
-          <Title />
+          <Title>Explore</Title>
         </div>
         {collections.map((collection) => (
           <Collection key={collection.id} collection={collection} />
