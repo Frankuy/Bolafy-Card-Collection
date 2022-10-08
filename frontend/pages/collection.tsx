@@ -36,7 +36,6 @@ export async function getServerSideProps() {
     props: {
       cards,
     },
-    revalidate: 10,
   };
 }
 

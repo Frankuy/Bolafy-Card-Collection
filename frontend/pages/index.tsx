@@ -32,7 +32,7 @@ export async function getStaticProps() {
     props: {
       collections,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 }
 
