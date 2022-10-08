@@ -41,10 +41,10 @@ const Collection = ({ collection }: CollectionProps) => {
   return (
     <div
       key={collection.id}
-      className="border-white border-opacity-10 border-2 rounded-lg my-2 transition-all hover:border-opacity-100"
+      className="border-white border-opacity-10 border-2 rounded-lg my-2 transition-all hover:border-opacity-40"
     >
       <div className="flex justify-between align-center p-2">
-        <p className="text-white">{collection.name}</p>
+        <p className="text-white font-semibold">{collection.name}</p>
         <Button icon={<BuyIcon />} onClick={() => onClickBuy(collection.id)}>
           Buy
         </Button>
