@@ -13,7 +13,7 @@ const CollectionPage: NextPage<CollectionPageProps> = ({ cards }) => {
         <div className="mb-2">
           <Title>Your Collection</Title>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center">
           {cards.map((card) => (
             <div key={card.id} className="m-1">
               <Card card={card} />
