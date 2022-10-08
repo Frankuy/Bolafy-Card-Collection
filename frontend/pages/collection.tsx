@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Image from "next/image";
 import Card from "../components/Card";
 import Header from "../components/Header";
 import Title from "../components/Title";
