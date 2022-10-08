@@ -3,7 +3,10 @@ import Card from "../components/Card";
 import Header from "../components/Header";
 import Title from "../components/Title";
 import { ICard } from "../interfaces/card-interface";
-import { CollectionPageProps } from "../interfaces/collection-page-props";
+
+interface CollectionPageProps {
+  cards: ICard[];
+}
 
 const CollectionPage: NextPage<CollectionPageProps> = ({ cards }) => {
   return (

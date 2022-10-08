@@ -1,8 +1,12 @@
 import Image from "next/image";
-import { CardProps } from "../interfaces/card-props";
 import { useModal } from "react-modal-hook";
 import Modal from "./Modal";
 import Button from "./Button";
+import { ICard } from "../interfaces/card-interface";
+
+interface CardProps {
+  card: ICard;
+}
 
 const Card = ({ card }: CardProps) => {
   const [showModal, hideModal] = useModal(() => (

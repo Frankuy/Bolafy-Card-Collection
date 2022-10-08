@@ -1,5 +1,4 @@
 import { ICard } from "../interfaces/card-interface";
-import { CollectionProps } from "../interfaces/collection-props";
 import Button from "./Button";
 import Card from "./Card";
 import Slider from "react-slick";
@@ -8,6 +7,11 @@ import carouselSetting from "../settings/carousel";
 import { useModal } from "react-modal-hook";
 import { useState } from "react";
 import Modal from "./Modal";
+import { ICollection } from "../interfaces/collection-interface";
+
+interface CollectionProps {
+  collection: ICollection;
+}
 
 const Collection = ({ collection }: CollectionProps) => {
   const [newCards, setNewCards] = useState<ICard[]>([]);
@@ -68,13 +72,6 @@ const Collection = ({ collection }: CollectionProps) => {
           ))}
         </Slider>
       </div>
-      {/* <div className="flex justify-center flex-wrap">
-        {collection.cards.map((card) => (
-          <div key={card.id} className="m-1">
-            <Card card={card} />
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 };

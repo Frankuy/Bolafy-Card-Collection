@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import Card from "../components/Card";
 import Collection from "../components/Collection";
 import Header from "../components/Header";
 import Title from "../components/Title";
 import { ICollection } from "../interfaces/collection-interface";
-import { HomePageProps } from "../interfaces/home-page-props";
+
+interface HomePageProps {
+  collections: ICollection[];
+}
 
 const Home: NextPage<HomePageProps> = ({ collections }) => {
   return (

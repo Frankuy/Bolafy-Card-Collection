@@ -1,4 +1,10 @@
-import { ButtonProps } from "../interfaces/button-props";
+import { MouseEventHandler } from "react";
+
+interface ButtonProps {
+  children?: JSX.Element | JSX.Element[] | string | string[];
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
+  icon?: JSX.Element;
+}
 
 const Button = ({ children, onClick, icon }: ButtonProps) => {
   return (
