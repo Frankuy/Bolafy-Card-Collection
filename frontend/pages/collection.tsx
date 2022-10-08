@@ -28,7 +28,7 @@ const CollectionPage: NextPage<CollectionPageProps> = ({ cards }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch("http://localhost:3000/api/users/test/cards");
   const cards: ICard[] = await res.json();
 
