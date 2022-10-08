@@ -27,7 +27,7 @@ const Card = ({ card }: CardProps) => {
   return (
     <div
       onClick={showModal}
-      className="rounded-xl border-2 border-gray-100 border-opacity-40 overflow-hidden w-48"
+      className="rounded-xl border-2 border-gray-100 border-opacity-40 overflow-hidden w-48 transition-all hover:border-opacity-100"
     >
       <Image
         src={card.link}
