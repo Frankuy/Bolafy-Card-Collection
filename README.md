@@ -65,3 +65,7 @@ npm run start
 ```
 
 3. Web app should already be running on port 3001 and API on port 3000
+
+## Tutorial
+![Home page](docs/home.png?raw=true "Home page")
+![Your collection page](docs/collection.png?raw=true "Your collection page")
