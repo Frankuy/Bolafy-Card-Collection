@@ -5,39 +5,20 @@ import Card from "./Card";
 import Slider from "react-slick";
 import BuyIcon from "./BuyIcon";
 import carouselSetting from "../settings/carousel";
-import ReactModal from "react-modal";
 import { useModal } from "react-modal-hook";
-import Title from "./Title";
 import { useState } from "react";
-
-const customStyles = {
-  overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-    zIndex: 100,
-  },
-  content: {
-    backgroundColor: "#1e1940",
-    borderRadius: "8px",
-    borderColor: "transparent",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
+import Modal from "./Modal";
 
 const Collection = ({ collection }: CollectionProps) => {
   const [newCards, setNewCards] = useState<ICard[]>([]);
   const [showModal, hideModal] = useModal(
     () => (
-      <ReactModal isOpen style={customStyles}>
+      <Modal>
         <div className="flex flex-col justify-center items-center">
           <p className="text-white font-bold text-xl">
             Congrats! you get these cards
           </p>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-center">
             {newCards.map((card) => (
               <div className="m-4" key={card.id}>
                 <Card card={card} />
@@ -46,7 +27,7 @@ const Collection = ({ collection }: CollectionProps) => {
           </div>
           <Button onClick={hideModal}>Close</Button>
         </div>
-      </ReactModal>
+      </Modal>
     ),
     [newCards]
   );

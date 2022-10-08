@@ -1,9 +1,30 @@
 import Image from "next/image";
 import { CardProps } from "../interfaces/card-props";
+import { useModal } from "react-modal-hook";
+import Modal from "./Modal";
+import Button from "./Button";
 
 const Card = ({ card }: CardProps) => {
+  const [showModal, hideModal] = useModal(() => (
+    <Modal>
+      <div className="flex flex-col justify-center items-center">
+        <p className="text-white font-bold text-xl">{card.name}</p>
+        <Image
+          src={card.link}
+          alt={card.name}
+          width={400}
+          height={400}
+          objectFit="contain"
+        />
+        <Button onClick={hideModal}>Close</Button>
+      </div>
+    </Modal>
+  ));
   return (
-    <div className="rounded-xl border-2 border-white overflow-hidden w-48">
+    <div
+      onClick={showModal}
+      className="rounded-xl border-2 border-gray-100 border-opacity-40 overflow-hidden w-48"
+    >
       <Image
         src={card.link}
         alt={card.name}
